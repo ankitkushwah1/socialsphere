@@ -208,7 +208,6 @@ const Post: React.FC<PostProps> = ({ post, user, onDelete, onLike }) => {
                       {comment.username}
                     </span>
                     <span className="text-xs text-gray-500">
-                      <p>{comment.createdAt}</p>
                       {timeAgo(comment.createdAt)}
                     </span>
                   </div>
