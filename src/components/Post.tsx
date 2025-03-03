@@ -170,11 +170,13 @@ const Post: React.FC<PostProps> = ({ post, user, onDelete, onLike }) => {
         <button
           onClick={() => onLike(post.id)}
           className={`flex items-center space-x-1.5 ${
-            !user ? "opacity-50 cursor-not-allowed" : "hover:text-blue-600"
+            !user ? "opacity-50 cursor-not-allowed" : "hover:text-red-600"
           }`}
           disabled={!user}
         >
-          <span className="text-xl">👍</span>
+          <span className="text-xl">
+            {post.likes.includes(user?.uid) ? "❤️" : "🤍"}
+          </span>
           <span className="text-sm font-medium">{post.likes.length}</span>
         </button>
 

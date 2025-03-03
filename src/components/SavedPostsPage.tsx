@@ -85,7 +85,7 @@ const SavedPostsPage: React.FC = () => {
   return (
     <div className="container mx-auto p-4">
       <div className="flex flex-col space-y-6">
-        {posts.map((post: any) => (
+        {posts?.map((post: any) => (
           <div className="bg-white rounded-lg shadow-md p-4 mb-4 max-w-2xl mx-auto h-50 w-full">
             <div className="flex items-center space-x-3 mb-4">
               <img
@@ -98,7 +98,7 @@ const SavedPostsPage: React.FC = () => {
                   {post.postDetails.username}
                 </p>
                 <p className="text-xs text-gray-500">
-                  {timeAgo(post.postDetails.timestamp)}
+                  {timeAgo(post.postDetails.createdAt)}
                 </p>
               </div>
             </div>
@@ -120,7 +120,10 @@ const SavedPostsPage: React.FC = () => {
                 }`}
                 disabled={!user}
               >
-                <span className="text-xl">👍</span>
+                {/* <span className="text-xl">👍</span> */}
+                <span className="text-xl">
+                  {post.postDetails?.likes?.length ? "❤️" : "🤍"}
+                </span>
                 <span className="text-sm font-medium">
                   {post.postDetails?.likes?.length}
                 </span>
